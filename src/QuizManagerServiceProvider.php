@@ -12,7 +12,7 @@ class QuizManagerServiceProvider extends PackageServiceProvider
         $package
             ->name('quiz-manager')
             ->hasConfigFile()
-            ->hasMigrations('create_gallery_table', 'create_quiz_questions_table');
+            ->hasMigrations('create_quizzes_table', 'create_quiz_questions_table', 'create_quiz_participants_table');
     }
 
     public function packageBooted()
