@@ -1,0 +1,68 @@
+{
+    "name": "shahriared/quiz-manager",
+    "description": "Quiz Manager for Laravel",
+    "keywords": [
+        "shahriared",
+        "laravel",
+        "gallery",
+        "quiz-manager"
+    ],
+    "homepage": "https://github.com/shahriared/quiz-manager",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shahriar Edalat Zadeh",
+            "email": "shahriared@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "guzzlehttp/guzzle": "^7.2",
+        "spatie/laravel-package-tools": "^1.9.2",
+        "illuminate/contracts": "^9.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.0",
+        "nunomaduro/collision": "^6.0",
+        "orchestra/testbench": "^7.0",
+        "pestphp/pest": "^1.21",
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Shahriared\\QuizManager\\": "src",
+            "Shahriared\\QuizManager\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Shahriared\\QuizManager\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Shahriared\\QuizManager\\QuizManagerServiceProvider"
+            ],
+            "aliases": {
+                "QuizManager": "Shahriared\\QuizManager\\Facades\\QuizManager"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
