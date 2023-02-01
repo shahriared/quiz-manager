@@ -26,12 +26,12 @@ class QuizManager
         return QuizController::delete($quiz_id);
     }
 
-    public function addImageToQuiz($quiz_id, $data)
+    public function addQuestionToQuiz($quiz_id, $data)
     {
         return QuizController::addQuestion($quiz_id, $data);
     }
 
-    public function deleteImageFromQuiz($quiz_id, $quiz_question_id)
+    public function deleteQuestionFromQuiz($quiz_id, $quiz_question_id)
     {
         return QuizController::deleteQuestion($quiz_id, $quiz_question_id);
     }
