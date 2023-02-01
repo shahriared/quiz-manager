@@ -6,7 +6,7 @@ use Shahriared\QuizManager\Http\Controllers\QuizController;
 
 class QuizManager
 {
-    public function getGalleries()
+    public function getQuizzes()
     {
         return QuizController::getAll();
     }
@@ -28,11 +28,11 @@ class QuizManager
 
     public function addImageToQuiz($quiz_id, $data)
     {
-        return QuizController::addImage($quiz_id, $data);
+        return QuizController::addQuestion($quiz_id, $data);
     }
 
     public function deleteImageFromQuiz($quiz_id, $quiz_question_id)
     {
-        return QuizController::deleteImage($quiz_id, $quiz_question_id);
+        return QuizController::deleteQuestion($quiz_id, $quiz_question_id);
     }
 }

@@ -46,7 +46,7 @@ class QuizController
         return Quiz::where(['id' => $id])->delete();
     }
 
-    public static function addImage($id, $data)
+    public static function addQuestion($id, $data)
     {
         if (!Quiz::find($id)) {
             return null;
@@ -77,7 +77,7 @@ class QuizController
         return null;
     }
 
-    public static function deleteImage($quiz_id, $quiz_question_id)
+    public static function deleteQuestion($quiz_id, $quiz_question_id)
     {
         if (!Quiz::find($quiz_id)) {
             return null;
