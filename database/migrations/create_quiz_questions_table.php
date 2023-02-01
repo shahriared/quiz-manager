@@ -17,10 +17,11 @@ return new class extends Migration
                     ->on('quizzes')
                     ->onDelete('cascade');
             
-            $table->string('name');
-            $table->string('alt');
-            $table->text('description');
-            $table->text('image');
+            $table->longText('title');
+            $table->longText('hint');
+            $table->string('type');
+            $table->json('options');
+            $table->boolean('is_published');
 
             $table->timestamps();
         });

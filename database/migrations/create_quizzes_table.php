@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
+            $table->longText('name');
+            $table->longText('description');
             $table->boolean('is_published');
             $table->timestamps();
         });
