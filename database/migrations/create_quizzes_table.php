@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
             $table->longText('name');
+            $table->double('max_point')->nullable();
             $table->longText('description');
             $table->boolean('is_published');
             $table->timestamps();
