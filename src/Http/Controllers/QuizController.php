@@ -17,8 +17,9 @@ class QuizController
     public static function create($data)
     {
         $validatedData = Validator::make($data, [
-            'name' => 'required|max:255',
+            'name' => 'required',
             'description' => 'required',
+            'max_point' => 'required|numeric',
             'is_published' => 'required|boolean',
         ])->validate();
         
@@ -29,8 +30,9 @@ class QuizController
     {
         $validatedData = Validator::make($data, [
             'id' => 'required|exists:quizzes,id',
-            'name' => 'required|max:255',
+            'name' => 'required',
             'description' => 'required',
+            'max_point' => 'required|numeric',
             'is_published' => 'required|boolean',
         ])->validate();
         
@@ -39,10 +41,7 @@ class QuizController
     
     public static function delete($id)
     {
-        $images = QuizQuestion::where('quiz_id', '=', $id)->get();
-        foreach ($images as $img) {
-            Storage::delete($img->image);
-        }
+        QuizQuestion::where(['quiz_id' => $id])->delete();
         return Quiz::where(['id' => $id])->delete();
     }
 
@@ -52,29 +51,21 @@ class QuizController
             return null;
         }
         $validatedData = Validator::make($data, [
-            'name' => 'required|max:255',
-            'description' => 'required',
-            'alt' => 'required',
-            'file' => 'required',
+            'title' => 'required',
+            'type' => 'required',
+            'is_published' => 'required|boolean',
+            'options' => 'required|array',
         ])->validate();
 
         $temp = [];
         $temp['quiz_id'] = $id;
-        $temp['name'] = $validatedData['name'];
-        $temp['description'] = $validatedData['description'];
-        $temp['alt'] = $validatedData['alt'];
-        $temp['image'] = null;
+        $temp['title'] = $data['title'];
+        $temp['hint'] = $data['hint'];
+        $temp['type'] = $data['type'];
+        $temp['is_published'] = $data['is_published'];
+        $temp['options'] = $data['options'];
 
-
-        $imageFile = $validatedData['file'];
-        $imagePath =  $imageFile->store('public/quiz-images');
-
-        if ($imagePath) {
-            $temp['image'] = $imagePath;
-            return QuizQuestion::create($temp);
-        } 
-        
-        return null;
+        return QuizQuestion::create($temp);
     }
 
     public static function deleteQuestion($quiz_id, $quiz_question_id)
