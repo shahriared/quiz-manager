@@ -7,4 +7,9 @@ return [
     'domain' => null,
 
     'prefix' => '',
+
+    'question_types' => [
+        'mcq' => 'MCQ',
+        'open_question' => 'Open Question',
+    ],
 ];
