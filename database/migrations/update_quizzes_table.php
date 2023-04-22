@@ -9,7 +9,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('quizzes', function (Blueprint $table) {
-            $table->longText('url')->nullable()->after('desccription');
+            $table->longText('url')->nullable()->after('description');
         });
     }
 
