@@ -20,6 +20,7 @@ class QuizController
             'name' => 'required',
             'description' => 'required',
             'max_point' => 'required|numeric',
+            'url' => 'nullable',
             'is_published' => 'required|boolean',
         ])->validate();
         
@@ -33,6 +34,7 @@ class QuizController
             'name' => 'required',
             'description' => 'required',
             'max_point' => 'required|numeric',
+            'url' => 'nullable',
             'is_published' => 'required|boolean',
         ])->validate();
         
