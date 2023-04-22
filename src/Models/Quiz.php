@@ -13,7 +13,7 @@ class Quiz extends Model
 
     protected $table = 'quizzes';
 
-    protected $fillable = ['name', 'max_point', 'description', 'is_published'];
+    protected $fillable = ['name', 'max_point', 'description', 'is_published', 'url'];
 
     public function questions()
     {
